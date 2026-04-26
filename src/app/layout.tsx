@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Nunito } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Sidebar from '@/components/Sidebar'
 
@@ -19,6 +20,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${nunito.className} bg-slate-50 text-slate-800 min-h-screen antialiased`}>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-JKX2THHZ14" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JKX2THHZ14');
+        `}</Script>
         <Sidebar />
         <main className="md:ml-72 pt-16 md:pt-0 min-h-screen relative overflow-hidden">
           {/* Fun background decorative elements */}
