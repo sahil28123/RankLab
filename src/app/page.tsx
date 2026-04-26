@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { supabase } from '@/lib/supabase'
 import StatCard from '@/components/StatCard'
 import SubjectBadge from '@/components/SubjectBadge'
