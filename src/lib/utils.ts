@@ -10,27 +10,27 @@ export type Subject = typeof SUBJECTS[number]
 
 export const SUBJECT_COLORS: Record<string, { bg: string; text: string; border: string; glow: string }> = {
   Physics: {
-    bg: 'bg-blue-500/10',
-    text: 'text-blue-400',
-    border: 'border-blue-500/30',
-    glow: 'shadow-blue-500/20',
+    bg: 'bg-orange-100',
+    text: 'text-orange-700',
+    border: 'border-orange-300',
+    glow: 'shadow-orange-200',
   },
   Chemistry: {
-    bg: 'bg-emerald-500/10',
-    text: 'text-emerald-400',
-    border: 'border-emerald-500/30',
-    glow: 'shadow-emerald-500/20',
+    bg: 'bg-emerald-100',
+    text: 'text-emerald-700',
+    border: 'border-emerald-300',
+    glow: 'shadow-emerald-200',
   },
   Mathematics: {
-    bg: 'bg-purple-500/10',
-    text: 'text-purple-400',
-    border: 'border-purple-500/30',
-    glow: 'shadow-purple-500/20',
+    bg: 'bg-purple-100',
+    text: 'text-purple-700',
+    border: 'border-purple-300',
+    glow: 'shadow-purple-200',
   },
 }
 
 export const DIFFICULTY_COLORS: Record<string, { bg: string; text: string; dot: string }> = {
-  Easy: { bg: 'bg-green-500/10', text: 'text-green-400', dot: 'bg-green-400' },
-  Medium: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', dot: 'bg-yellow-400' },
-  Hard: { bg: 'bg-red-500/10', text: 'text-red-400', dot: 'bg-red-400' },
+  Easy:   { bg: 'bg-emerald-100', text: 'text-emerald-700', dot: 'bg-emerald-500' },
+  Medium: { bg: 'bg-orange-100',  text: 'text-orange-700',  dot: 'bg-orange-500'  },
+  Hard:   { bg: 'bg-pink-100',    text: 'text-pink-700',    dot: 'bg-pink-500'    },
 }

@@ -67,52 +67,52 @@ export default async function ConceptDetailPage({ params }: { params: { id: stri
 
   return (
     <div className="p-4 md:p-8 max-w-5xl animate-fade-in">
-      <Link href="/concepts" className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-300 transition-colors mb-5">
-        <ArrowLeft className="w-3.5 h-3.5" /> Back to Concepts
+      <Link href="/concepts" className="inline-flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors mb-6 bg-white px-4 py-2 rounded-full border-2 border-slate-200 hover:border-slate-300 shadow-sm">
+        <ArrowLeft className="w-4 h-4" /> Back to Concepts
       </Link>
 
       {/* Header card */}
-      <div className="glass rounded-xl p-5 md:p-6 mb-5">
-        <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+      <div className="bg-gradient-to-br from-purple-400 to-indigo-500 rounded-3xl p-6 md:p-8 mb-6 text-white border-4 border-white shadow-xl shadow-purple-400/20">
+        <div className="flex flex-col sm:flex-row sm:items-start gap-5">
           <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2 flex-wrap">
+            <div className="flex items-center gap-2 mb-3 flex-wrap">
               <SubjectBadge subject={concept.subject} />
               <DifficultyBadge difficulty={concept.difficulty} />
-              <span className="text-xs bg-white/5 border border-white/10 text-slate-500 px-2.5 py-1 rounded-full">Class {concept.class}</span>
+              <span className="text-sm font-black bg-white/20 border-2 border-white/40 text-white px-3 py-1 rounded-full">Class {concept.class}</span>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-white mt-2 leading-tight">{concept.name}</h1>
-            <p className="text-slate-400 text-sm mt-1">{concept.chapter}</p>
+            <h1 className="text-2xl md:text-3xl font-black text-white mt-2 leading-tight drop-shadow-sm">{concept.name}</h1>
+            <p className="text-purple-200 font-semibold text-base mt-2">{concept.chapter}</p>
           </div>
           <div className="flex sm:flex-col gap-3 sm:gap-2 shrink-0">
-            <div className="flex items-center gap-2 glass rounded-xl px-3 py-2">
-              <Flame className="w-4 h-4 text-orange-400" />
+            <div className="flex items-center gap-2 bg-white/15 border-2 border-white/30 rounded-2xl px-4 py-3">
+              <Flame className="w-5 h-5 text-orange-300" />
               <div>
-                <p className="text-base font-bold text-white leading-none">{concept.jee_count}</p>
-                <p className="text-[10px] text-slate-500">JEE Qs</p>
+                <p className="text-xl font-black text-white leading-none">{concept.jee_count}</p>
+                <p className="text-xs font-semibold text-purple-200">JEE Qs</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 glass rounded-xl px-3 py-2">
-              <AlertTriangle className="w-4 h-4 text-red-400" />
+            <div className="flex items-center gap-2 bg-white/15 border-2 border-white/30 rounded-2xl px-4 py-3">
+              <AlertTriangle className="w-5 h-5 text-red-300" />
               <div>
-                <p className="text-base font-bold text-white leading-none">{concept.pct_hard}%</p>
-                <p className="text-[10px] text-slate-500">Hard</p>
+                <p className="text-xl font-black text-white leading-none">{concept.pct_hard}%</p>
+                <p className="text-xs font-semibold text-purple-200">Hard</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 glass rounded-xl px-3 py-2">
-              <Clock className="w-4 h-4 text-blue-400" />
+            <div className="flex items-center gap-2 bg-white/15 border-2 border-white/30 rounded-2xl px-4 py-3">
+              <Clock className="w-5 h-5 text-blue-300" />
               <div>
-                <p className="text-base font-bold text-white leading-none">{concept.estimated_time_min}</p>
-                <p className="text-[10px] text-slate-500">min</p>
+                <p className="text-xl font-black text-white leading-none">{concept.estimated_time_min}</p>
+                <p className="text-xs font-semibold text-purple-200">min</p>
               </div>
             </div>
           </div>
         </div>
 
         {concept.jee_tip && (
-          <div className="mt-4 p-3.5 rounded-xl bg-amber-500/5 border border-amber-500/15">
-            <div className="flex items-start gap-2.5">
-              <Lightbulb className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-              <p className="text-sm text-amber-200/80 leading-relaxed">{concept.jee_tip}</p>
+          <div className="mt-5 p-4 rounded-2xl bg-white/15 border-2 border-white/30 backdrop-blur-sm">
+            <div className="flex items-start gap-3">
+              <Lightbulb className="w-5 h-5 text-yellow-300 shrink-0 mt-0.5" />
+              <p className="text-sm font-bold text-white leading-relaxed">{concept.jee_tip}</p>
             </div>
           </div>
         )}
@@ -120,15 +120,18 @@ export default async function ConceptDetailPage({ params }: { params: { id: stri
 
       <div className="flex flex-col lg:grid lg:grid-cols-3 gap-5">
         <div className="lg:col-span-2 space-y-4">
+          {/* Formulas */}
           {formulas.length > 0 && (
-            <div className="glass rounded-xl p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <Calculator className="w-4 h-4 text-emerald-400" />
-                <h2 className="text-sm font-semibold text-white">Key Formulas</h2>
+            <div className="bg-white rounded-3xl p-5 border-2 border-emerald-100 shadow-md shadow-slate-200/40">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="bg-emerald-100 p-2 rounded-xl">
+                  <Calculator className="w-5 h-5 text-emerald-700" />
+                </div>
+                <h2 className="text-base font-black text-slate-800">🧮 Key Formulas</h2>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {formulas.map((f, i) => (
-                  <div key={i} className="font-mono text-sm text-emerald-300 bg-emerald-500/5 border border-emerald-500/10 px-3 py-2.5 rounded-xl leading-relaxed">
+                  <div key={i} className="font-mono text-sm font-bold text-emerald-800 bg-emerald-50 border-2 border-emerald-200 px-4 py-3 rounded-2xl leading-relaxed">
                     {f}
                   </div>
                 ))}
@@ -136,59 +139,66 @@ export default async function ConceptDetailPage({ params }: { params: { id: stri
             </div>
           )}
 
+          {/* Key Points */}
           {keyPoints.length > 0 && (
-            <div className="glass rounded-xl p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <CheckCircle className="w-4 h-4 text-blue-400" />
-                <h2 className="text-sm font-semibold text-white">Key Points for JEE</h2>
+            <div className="bg-white rounded-3xl p-5 border-2 border-sky-100 shadow-md shadow-slate-200/40">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="bg-sky-100 p-2 rounded-xl">
+                  <CheckCircle className="w-5 h-5 text-sky-700" />
+                </div>
+                <h2 className="text-base font-black text-slate-800">✅ Key Points for JEE</h2>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {keyPoints.map((p, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm text-slate-400">
-                    <span className="text-blue-400 font-bold shrink-0 mt-0.5 text-xs">→</span>
-                    <span className="leading-relaxed">{p}</span>
+                  <li key={i} className="flex items-start gap-3 text-sm">
+                    <span className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 font-black flex items-center justify-center shrink-0 mt-0.5 text-xs">{i + 1}</span>
+                    <span className="font-semibold text-slate-800 leading-relaxed">{p}</span>
                   </li>
                 ))}
               </ul>
             </div>
           )}
 
+          {/* Common Mistakes */}
           {mistakes.length > 0 && (
-            <div className="glass rounded-xl p-5 border border-red-500/10">
-              <div className="flex items-center gap-2 mb-3">
-                <AlertTriangle className="w-4 h-4 text-red-400" />
-                <h2 className="text-sm font-semibold text-white">Common Mistakes</h2>
+            <div className="bg-white rounded-3xl p-5 border-2 border-pink-100 shadow-md shadow-slate-200/40">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="bg-pink-100 p-2 rounded-xl">
+                  <AlertTriangle className="w-5 h-5 text-pink-700" />
+                </div>
+                <h2 className="text-base font-black text-slate-800">⚠️ Common Mistakes</h2>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {mistakes.map((m, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm text-slate-400">
-                    <span className="text-red-400 font-bold shrink-0 mt-0.5 text-xs">✕</span>
-                    <span className="leading-relaxed">{m}</span>
+                  <li key={i} className="flex items-start gap-3 text-sm">
+                    <span className="w-6 h-6 rounded-full bg-pink-100 text-pink-700 font-black flex items-center justify-center shrink-0 mt-0.5 text-xs">✕</span>
+                    <span className="font-semibold text-slate-800 leading-relaxed">{m}</span>
                   </li>
                 ))}
               </ul>
             </div>
           )}
 
+          {/* Practice Questions */}
           {relatedQ && relatedQ.length > 0 && (
-            <div className="glass rounded-xl p-5">
-              <div className="flex items-center justify-between mb-3">
-                <h2 className="text-sm font-semibold text-white">Practice Questions</h2>
+            <div className="bg-white rounded-3xl p-5 border-2 border-slate-100 shadow-md shadow-slate-200/40">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-base font-black text-slate-800">📝 Practice Questions</h2>
                 <Link href={`/questions?subject=${concept.subject}`}
-                  className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors">
-                  See all <ArrowRight className="w-3 h-3" />
+                  className="text-sm font-bold text-sky-600 hover:text-sky-700 flex items-center gap-1 bg-sky-50 px-3 py-1.5 rounded-full transition-colors">
+                  See all <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {relatedQ.map(q => (
                   <Link key={q.id} href={`/questions/${q.id}`}
-                    className="block p-3 rounded-xl border border-white/5 hover:bg-white/3 hover:border-white/10 transition-all group"
+                    className="block p-4 rounded-2xl border-2 border-slate-100 hover:bg-slate-50 hover:border-sky-200 transition-all group"
                   >
-                    <p className="text-sm text-slate-400 line-clamp-2 group-hover:text-slate-200 transition-colors leading-relaxed">{q.question_text}</p>
+                    <p className="text-sm font-semibold text-slate-800 line-clamp-2 group-hover:text-sky-700 transition-colors leading-relaxed">{q.question_text}</p>
                     <div className="flex items-center gap-2 mt-2">
-                      <span className="text-xs text-slate-600">{q.year}</span>
-                      <span className="text-slate-700">·</span>
-                      <span className="text-xs text-slate-600">{q.question_type}</span>
+                      <span className="text-xs font-black text-slate-600 bg-slate-100 px-2 py-0.5 rounded-lg">{q.year}</span>
+                      <span className="text-sm font-bold text-slate-400">·</span>
+                      <span className="text-xs font-bold text-slate-500">{q.question_type}</span>
                       <DifficultyBadge difficulty={q.difficulty} />
                     </div>
                   </Link>
@@ -201,14 +211,16 @@ export default async function ConceptDetailPage({ params }: { params: { id: stri
         {/* Right sidebar */}
         <div className="space-y-4">
           {ncertChapters.length > 0 && (
-            <div className="glass rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
-                <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">NCERT Chapters</h3>
+            <div className="bg-white rounded-3xl p-5 border-2 border-emerald-100 shadow-md shadow-slate-200/40">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="bg-emerald-100 p-1.5 rounded-xl">
+                  <BookOpen className="w-4 h-4 text-emerald-700" />
+                </div>
+                <h3 className="text-sm font-black text-slate-700 uppercase tracking-wider">NCERT Chapters</h3>
               </div>
-              <ul className="space-y-1.5">
+              <ul className="space-y-2">
                 {ncertChapters.map((ch, i) => (
-                  <li key={i} className="text-xs text-slate-400 bg-white/3 px-3 py-2 rounded-lg border border-white/5">
+                  <li key={i} className="text-sm font-bold text-slate-700 bg-emerald-50 px-3 py-2.5 rounded-2xl border-2 border-emerald-100">
                     {ch}
                   </li>
                 ))}
@@ -217,21 +229,21 @@ export default async function ConceptDetailPage({ params }: { params: { id: stri
           )}
 
           {prerequisites && prerequisites.length > 0 && (
-            <div className="glass rounded-xl p-4">
-              <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Learn First</h3>
-              <div className="space-y-2">
+            <div className="bg-white rounded-3xl p-5 border-2 border-orange-100 shadow-md shadow-slate-200/40">
+              <h3 className="text-sm font-black text-slate-700 uppercase tracking-wider mb-4">📚 Learn First</h3>
+              <div className="space-y-2.5">
                 {prerequisites.map((edge: any) => {
                   const node = edge.concept_nodes
                   if (!node) return null
                   return (
                     <Link key={node.id} href={`/concepts/${node.id}`}
-                      className="flex items-center justify-between p-2.5 rounded-lg bg-white/3 border border-white/5 hover:bg-white/5 transition-colors group"
+                      className="flex items-center justify-between p-3.5 rounded-2xl bg-orange-50 border-2 border-orange-100 hover:border-orange-300 hover:bg-orange-100 transition-colors group"
                     >
                       <div className="min-w-0">
-                        <p className="text-xs font-medium text-slate-300 group-hover:text-white truncate">{node.name}</p>
-                        {edge.description && <p className="text-[10px] text-slate-600 mt-0.5 truncate">{edge.description}</p>}
+                        <p className="text-sm font-bold text-slate-800 group-hover:text-orange-700 truncate">{node.name}</p>
+                        {edge.description && <p className="text-xs font-semibold text-slate-500 mt-0.5 truncate">{edge.description}</p>}
                       </div>
-                      <ChevronRight className="w-3 h-3 text-slate-600 group-hover:text-slate-400 shrink-0 ml-2" />
+                      <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-orange-500 shrink-0 ml-2" />
                     </Link>
                   )
                 })}
@@ -240,18 +252,18 @@ export default async function ConceptDetailPage({ params }: { params: { id: stri
           )}
 
           {enables && enables.length > 0 && (
-            <div className="glass rounded-xl p-4">
-              <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">This Unlocks</h3>
-              <div className="space-y-2">
+            <div className="bg-white rounded-3xl p-5 border-2 border-sky-100 shadow-md shadow-slate-200/40">
+              <h3 className="text-sm font-black text-slate-700 uppercase tracking-wider mb-4">🚀 This Unlocks</h3>
+              <div className="space-y-2.5">
                 {enables.map((edge: any) => {
                   const node = edge.concept_nodes
                   if (!node) return null
                   return (
                     <Link key={node.id} href={`/concepts/${node.id}`}
-                      className="flex items-center justify-between p-2.5 rounded-lg bg-white/3 border border-white/5 hover:bg-white/5 transition-colors group"
+                      className="flex items-center justify-between p-3.5 rounded-2xl bg-sky-50 border-2 border-sky-100 hover:border-sky-300 hover:bg-sky-100 transition-colors group"
                     >
-                      <p className="text-xs font-medium text-slate-300 group-hover:text-white truncate">{node.name}</p>
-                      <ChevronRight className="w-3 h-3 text-slate-600 group-hover:text-slate-400 shrink-0 ml-2" />
+                      <p className="text-sm font-bold text-slate-800 group-hover:text-sky-700 truncate">{node.name}</p>
+                      <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-sky-500 shrink-0 ml-2" />
                     </Link>
                   )
                 })}
